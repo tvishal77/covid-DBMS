@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 03:02 PM
+-- Generation Time: Jan 31, 2023 at 04:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -44,7 +44,9 @@ CREATE TABLE `bookingpatient` (
 
 INSERT INTO `bookingpatient` (`id`, `srfid`, `bedtype`, `hcode`, `spo2`, `pname`, `pphone`, `paddress`) VALUES
 (1, 'KA20210011', 'ICUBed', 'BLRH01', 88, 'chaitra', '9874561230', 'bangalore'),
-(2, 'KA20210022', 'ICUBed', 'BLRH02', 90, 'karthik', '9630258741', 'Hyderabad');
+(2, 'KA20210022', 'ICUBed', 'BLRH02', 90, 'karthik', '9630258741', 'Hyderabad'),
+(4, 'VIS01', 'ICUBed', 'BLRH04', 90, 'karthik', '9630258741', 'Kanakpura'),
+(5, 'VIS07', 'HICUBed', 'BLRH04', 80, 'vishal', '6547893210', 'Hyderabad');
 
 -- --------------------------------------------------------
 
@@ -67,8 +69,11 @@ CREATE TABLE `hospitaldata` (
 --
 
 INSERT INTO `hospitaldata` (`id`, `hcode`, `hname`, `normalbed`, `hicubed`, `icubed`, `vbed`) VALUES
-(5, 'BLRH02 ', 'RIMS HOSPITAL', 19, 10, 4, 2),
-(6, 'BLRH01', 'Dayananda', 30, 15, 7, 4);
+(6, 'BLRH01', 'Dayananda', 32, 15, 7, 4),
+(8, 'BLRH02', 'RIMS HOSPITAL', 25, 15, 10, 8),
+(9, 'BLRH03 ', 'Life Care Hospitals', 50, 25, 15, 10),
+(10, 'BLRH04 ', 'Bangalore Hospitals', 40, 19, 9, 7),
+(11, 'BLRH05 ', 'Vishnu Hospitals', 30, 10, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -89,7 +94,10 @@ CREATE TABLE `hospitaluser` (
 
 INSERT INTO `hospitaluser` (`id`, `hcode`, `email`, `password`) VALUES
 (20, 'BLRH01', 'vishaltrambadia3@gmail.com', 'pbkdf2:sha256:260000$uWY14Ge3O1NWvL9n$3105288d95c559bd8b985da6b228478d07356131ebac77163b2ea6368b1a77bf'),
-(22, 'BLRH02', 'shakuntalads123@gmail.com', 'pbkdf2:sha256:260000$7dI5xDInWSQWGJX1$a4a0aafa18ca7feebb5c332ce2f36baac34682dc3bff28949f9606cb31edf0e9');
+(24, 'BLRH02', 'shakuntalads123@gmail.com', 'pbkdf2:sha256:260000$viyYVG9MKiijX4Vk$afe68bec61a57c98e067fbb85b74eb757806499d8c9acdf378dd2c10cc60c0b8'),
+(25, 'BLRH03', 'prajwalmh13@gmail.com', 'pbkdf2:sha256:260000$k1pWOfe5xok4i85h$feb7902aca782e7148cc59b0ddadd54e6f6e87b4f3c38b0cfaa32401f5fc68f1'),
+(28, 'BLRH04', '1dt20cs124@dsatm.edu', 'pbkdf2:sha256:260000$dLBDZh3s8VS74FBp$700a870b86380a14234ecad19067836756706eb8c8287491021907ab411397ff'),
+(32, 'BLRH05', 'nagavishnujayam1999@gmail.com', 'pbkdf2:sha256:260000$cITsoGaHY0SFddDP$b3350254b62a22f14dbd153c6b0e0680af32c76ee47887a57b2f94784b230f4f');
 
 -- --------------------------------------------------------
 
@@ -128,8 +136,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `srfid`, `email`, `dob`) VALUES
-(8, 'KA20210011', '1dt20cs162@dsatm.edu', 'pbkdf2:sha256:260000$Pqsszf5dN6UfnIAn$127f13760a486f3b2681a7626e51f4127620c8ef274af1ee3405f01f8e020395'),
-(9, 'KA20210022', 'vishal@gmail.com', 'pbkdf2:sha256:260000$JXwyeCuYc8bhQ0br$d4cbc607de60d66f92532fb7fcca3c7e6b386db032110e0849d77de4e9ba745d');
+(10, 'VIS07', '1dt20cs162@dsatm.edu', 'pbkdf2:sha256:260000$YvlqE8WURtjUgbdy$c0d52dfe3abee0ce1affa1d8b9b45fdcf10eb778293f6abfdcb61f3ac1dd5ca3'),
+(11, 'VIS01', 'shakuntalads123@gmail.com', 'pbkdf2:sha256:260000$A1Q2SIYV69WwiHo4$176790ab020777d248593a69580cd1ba7614d72db2698f5fe585c3229f01f5aa');
 
 --
 -- Indexes for dumped tables
@@ -177,19 +185,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bookingpatient`
 --
 ALTER TABLE `bookingpatient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `hospitaldata`
 --
 ALTER TABLE `hospitaldata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `hospitaluser`
 --
 ALTER TABLE `hospitaluser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `test`
@@ -201,7 +209,7 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
